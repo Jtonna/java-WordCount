@@ -37,15 +37,23 @@ public class Main{
 		}
 
 		// sort the list with a hashmap?
-		ArrayList<HashMap.Entry<String, Integer>> sortedRights = new ArrayList<HashMap.Entry<String, Integer>>();
-		sortedRights.addAll(seprateHumanRightsHash.entrySet());
+		ArrayList<HashMap.Entry<String, Integer>> sortedHumanRights = new ArrayList<HashMap.Entry<String, Integer>>();
+		sortedHumanRights.addAll(seprateHumanRightsHash.entrySet());
 
-		Collections.sort(sortedRights, new Comparator<Map.Entry<String, Integer>>()
+		Collections.sort(sortedHumanRights, new Comparator<Map.Entry<String, Integer>>()
 		{
 			public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
 			{
 				return o2.getValue() - o1.getValue();
 			}
 		});
-	}
+
+		// looks through the array for key value pairs that repeat x ammount of times x = 50
+		for (int i = 0; i < 50; i++) {
+			HashMap.Entry<String, Integer> humanRightsDeclorationOfViolation = sortedHumanRights.get(i);
+			System.out.println("the word: " + humanRightsDeclorationOfViolation.getKey() + " repeats " + humanRightsDeclorationOfViolation.getValue() + " Times.");
+
+			// im pretty sure taking a human right document and violating or destroying it is a decloration of violence.
+		}
+	};
 }
