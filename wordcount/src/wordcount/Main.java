@@ -19,12 +19,22 @@ public class Main{
 		humanRights.replaceAll("[[\\.\\?\\!\\,\\;\\:\\{\\}\\(\\)\\']]", "");
 		String[] removedIllegals = humanRights.split(" +");
 
-		System.out.println(removedIllegals.length);
+		System.out.println("line 22 says there are " + removedIllegals.length + " words");
 
-		// now we need a for loop??
+		// now we need a hashmap and a for loop
+		// we need the hash map to store the array we made
+
+		HashMap<String, Integer> seprateHumanRightsHash = new HashMap<String, Integer>();
+
 		for (int i = 0; i < removedIllegals.length; i++){
-			System.out.println(removedIllegals[i]);
-		};
+			if (seprateHumanRightsHash.containsKey(removedIllegals[i])){
+				seprateHumanRightsHash.put(removedIllegals[i], seprateHumanRightsHash.get(removedIllegals[i]) + 1);
+			} else {
+				seprateHumanRightsHash.put(removedIllegals[i], 1);
+			}
+		}
+
+		
 
 	}
 }
