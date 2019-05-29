@@ -28,13 +28,24 @@ public class Main{
 
 		for (int i = 0; i < removedIllegals.length; i++){
 			if (seprateHumanRightsHash.containsKey(removedIllegals[i])){
-				seprateHumanRightsHash.put(removedIllegals[i], seprateHumanRightsHash.get(removedIllegals[i]) + 1);
+				seprateHumanRightsHash.put(removedIllegals[i],
+				seprateHumanRightsHash.get(removedIllegals[i]) + 1);
+				// put then get ^
 			} else {
 				seprateHumanRightsHash.put(removedIllegals[i], 1);
 			}
 		}
 
-		
+		// sort the list with a hashmap?
+		ArrayList<HashMap.Entry<String, Integer>> sortedRights = new ArrayList<HashMap.Entry<String, Integer>>();
+		sortedRights.addAll(seprateHumanRightsHash.entrySet());
 
+		Collections.sort(sortedRights, new Comparator<Map.Entry<String, Integer>>()
+		{
+			public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+			{
+				return o2.getValue() - o1.getValue();
+			}
+		});
 	}
 }
