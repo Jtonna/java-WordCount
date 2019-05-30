@@ -20,10 +20,8 @@ Thumbs.db
 .git/
 
 # Java
-*.class
 
 # packages 
-*.jar
 *.war
 *.ear
 
